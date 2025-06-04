@@ -112,7 +112,16 @@ export default async function decorate(block) {
   const navMeta = getMetadata('nav');
   const navPath = navMeta ? new URL(navMeta, window.location).pathname : '/nav';
   const fragment = await loadFragment(navPath);
-
+  const navtop=document.createElement("div");
+  navtop.id="navtop";
+  navtop.innerHTML="<p>SIGN IN</p><p>EN-US</p>";
+  window.addEventListener('scroll', function () {
+    const header = document.querySelector('header');
+    if (window.scrollY > 50) {
+      header.classList.add('scrolled');
+    } else {
+      header.classList.remove('scrolled');
+    }})
   // decorate nav DOM
   block.textContent = '';
   const nav = document.createElement('nav');
@@ -124,6 +133,32 @@ export default async function decorate(block) {
     const section = nav.children[i];
     if (section) section.classList.add(`nav-${c}`);
   });
+  const navTools = nav.querySelector('.nav-tools');
+
+if (navTools) {
+  const searchIconSpan = navTools.querySelector('.icon-search');
+console.log(searchIconSpan);
+  if (searchIconSpan) {
+    // Create a wrapper
+    const searchWrapper = document.createElement('div');
+    searchWrapper.className = 'nav-search-wrapper';
+
+    // Move the existing icon into wrapper
+    searchWrapper.appendChild(searchIconSpan.cloneNode(true));
+
+    // Create the search input
+    const searchInput = document.createElement('input');
+    searchInput.type = 'text';
+    searchInput.placeholder = 'SEARCH';
+    searchInput.className = 'nav-search-input';
+
+    // Add input to wrapper
+    searchWrapper.appendChild(searchInput);
+
+    // Replace the icon with the new wrapper
+    searchIconSpan.replaceWith(searchWrapper);
+  }
+}
 
   const navBrand = nav.querySelector('.nav-brand');
   const brandLink = navBrand.querySelector('.button');
