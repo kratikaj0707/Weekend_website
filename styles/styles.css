@@ -21,8 +21,8 @@
   --link-hover-color: #1d3ecf;
 
   /* fonts */
-  --body-font-family:  var(--fontFamilySansSerif, "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif);
-  --heading-font-family:  var(--fontFamilySerif, "Asar", Georgia, "Times New Roman", Times, serif);
+  --body-font-family: var(--fontFamilySansSerif, "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif);
+  --heading-font-family: var(--fontFamilySerif, "Asar", Georgia, "Times New Roman", Times, serif);
   /* body sizes */
   --body-font-size-m: 22px;
   --body-font-size-s: 19px;
@@ -53,7 +53,7 @@
   src: local('Arial');
 }
 
-@media (width >= 900px) {
+@media (width >=900px) {
   :root {
     /* body sizes */
     --body-font-size-m: 18px;
@@ -138,7 +138,7 @@ pre {
   white-space: pre;
 }
 
-main > div {
+main>div {
   margin: 40px 16px;
 }
 
@@ -177,7 +177,7 @@ button {
   line-height: 1.25;
   text-align: center;
   text-decoration: none;
-  background-color:#ffea00;
+  background-color: #ffea00;
   color: #202020;
   cursor: pointer;
   overflow: hidden;
@@ -227,28 +227,30 @@ main img {
 }
 
 /* sections */
-main > .section {
+main>.section {
   margin: 40px 0;
 }
 
-main > .section > div {
+main>.section>div {
   max-width: 1200px;
   margin: auto;
   padding: 0;
 }
 
-main > .section:first-of-type {
+main>.section:first-of-type {
   margin-top: 0;
 }
-
-@media (width >= 900px) {
-  main > .section > div {
-    /* padding: 0 32px; */
-    max-width: 100%;
-    margin: 0 50px;
-  }
+main .cards-container::after {
+  content: '';
+  display: block;
+  height: 2px;
+  background-color: rgb(235, 232, 232);
+  margin-left: 14px;
+  margin-right: 14px;
+  margin-top: 32px;
 
 }
+
 
 /* section metadata */
 main .section.light,
@@ -258,26 +260,50 @@ main .section.highlight {
   padding: 40px 0;
 }
 
-main .default-content-wrapper >h2{
+main .default-content-wrapper>h2 {
   font-size: 36px;
   font-weight: normal;
   padding: 0 14px;
   margin-bottom: 13.5px;
 }
-main .default-content-wrapper >h2::after {
+
+main .default-content-wrapper>h2::after {
   content: '';
   display: block;
   height: 2px;
   background-color: #ffea00;
-  margin-top: 10px; /* space between component and line */
+  margin-top: 10px;
+  /* space between component and line */
   width: 84px;
 }
-main .default-content-wrapper >p{
+
+main .default-content-wrapper>p {
   margin-left: 14px;
 }
-main .default-content-wrapper >h3{
+
+main .default-content-wrapper>h3 {
   font-size: 24px;
   font-weight: normal;
   padding: 0 14px;
   margin-bottom: 13.5px;
+}
+
+@media (width >=900px) {
+  main>.section>div {
+    /* padding: 0 32px; */
+    max-width: 100%;
+    margin: 0 50px;
+  }
+
+  main .cards-container::after {
+    content: '';
+    display: block;
+    height: 2px;
+    background-color: rgb(235, 232, 232);
+    margin-left: 64px;
+    margin-right: 64px;
+    margin-top: 32px;
+    /* space between component and line */
+
+  }
 }

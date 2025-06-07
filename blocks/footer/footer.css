@@ -1,10 +1,13 @@
 footer {
-  background-color: var(--light-color);
+  margin-top: 40px;
+  background-color: black;
+  color: white;
   font-size: var(--body-font-size-xs);
 }
 
 footer .footer > div {
-  margin: auto;
+  /* margin: auto; */
+  margin-top: 120px;
   max-width: 1200px;
   padding: 40px 24px 24px;
 }
