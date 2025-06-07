@@ -112,9 +112,10 @@ export default async function decorate(block) {
   const navMeta = getMetadata('nav');
   const navPath = navMeta ? new URL(navMeta, window.location).pathname : '/nav';
   const fragment = await loadFragment(navPath);
-  const navtop=document.createElement("div");
-  navtop.id="navtop";
-  navtop.innerHTML="<p>SIGN IN</p><p>EN-US</p>";
+ 
+  const navTop=document.createElement("div");
+  navTop.id="nav-top";
+  navTop.innerHTML="<span>SIGN IN</span><span>EN-US</span>";
   window.addEventListener('scroll', function () {
     const header = document.querySelector('header');
     if (window.scrollY > 50) {
@@ -185,7 +186,7 @@ console.log(searchIconSpan);
   const hamburger = document.createElement('div');
   hamburger.classList.add('nav-hamburger');
   hamburger.innerHTML = `<button type="button" aria-controls="nav" aria-label="Open navigation">
-      <span class="nav-hamburger-icon"></span>
+      <span class="nav-hamburger-icon"><span></span></span>
     </button>`;
   hamburger.addEventListener('click', () => toggleMenu(nav, navSections));
   nav.prepend(hamburger);
@@ -196,6 +197,7 @@ console.log(searchIconSpan);
 
   const navWrapper = document.createElement('div');
   navWrapper.className = 'nav-wrapper';
+  navWrapper.append(navTop);
   navWrapper.append(nav);
   block.append(navWrapper);
 }

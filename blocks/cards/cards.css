@@ -1,19 +1,27 @@
+.cards-wrapper > div{
+  padding: 0 14px;
+}
 .cards > ul {
   list-style: none;
   margin: 0;
   padding: 0;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(257px, 1fr));
-  grid-gap: 24px;
+  /* grid-gap: 24px; */
+  
 }
 
 .cards > ul > li {
-  border: 1px solid #dadada;
-  background-color: var(--background-color);
+  background-color: white;
+  /* border: 1px solid #dadada;
+  background-color: var(--background-color); */
+  margin-right: 72px;
+  margin-bottom: 32px;
+
 }
 
 .cards .cards-card-body {
-  margin: 16px;
+  /* margin: 16px; */
 }
 
 .cards .cards-card-image {
@@ -24,4 +32,26 @@
   width: 100%;
   aspect-ratio: 4 / 3;
   object-fit: cover;
+}
+
+.cards > ul >li> .cards-card-body> p > strong{
+  font-size: 17px;
+  text-transform: uppercase;
+  color: #202020;
+  white-space: wrap;
+  /* overflow: hidden;
+  text-overflow: ellipsis; */
+}
+.cards > ul >li> .cards-card-body> p{
+  font-size: 12px;
+  text-transform: uppercase;
+  color: dimgray;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.8;
+}
+
+@media (width>=900px){
+  
 }

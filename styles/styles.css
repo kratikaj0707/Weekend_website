@@ -21,9 +21,8 @@
   --link-hover-color: #1d3ecf;
 
   /* fonts */
-  --body-font-family: roboto, roboto-fallback, sans-serif;
-  --heading-font-family: roboto-condensed, roboto-condensed-fallback, sans-serif;
-
+  --body-font-family:  var(--fontFamilySansSerif, "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif);
+  --heading-font-family:  var(--fontFamilySerif, "Asar", Georgia, "Times New Roman", Times, serif);
   /* body sizes */
   --body-font-size-m: 22px;
   --body-font-size-s: 19px;
@@ -38,18 +37,18 @@
   --heading-font-size-xs: 22px;
 
   /* nav height */
-  --nav-height: 62px;
+  --nav-height: 82px;
 }
 
 /* fallback fonts */
 @font-face {
-  font-family: roboto-condensed-fallback;
+  font-family: var(--fontFamilySerif, "Asar", Georgia, "Times New Roman", Times, serif);
   size-adjust: 88.82%;
   src: local('Arial');
 }
 
 @font-face {
-  font-family: roboto-fallback;
+  font-family: var(--fontFamilySerif, "Asar", Georgia, "Times New Roman", Times, serif);
   size-adjust: 99.529%;
   src: local('Arial');
 }
@@ -109,17 +108,12 @@ h6 {
   margin-top: 0.8em;
   margin-bottom: 0.25em;
   font-family: var(--heading-font-family);
-  font-weight: 600;
+  /* font-weight: 600; */
   line-height: 1.25;
   scroll-margin: 40px;
 }
 
-h1 { font-size: var(--heading-font-size-xxl); }
-h2 { font-size: var(--heading-font-size-xl); }
-h3 { font-size: var(--heading-font-size-l); }
-h4 { font-size: var(--heading-font-size-m); }
-h5 { font-size: var(--heading-font-size-s); }
-h6 { font-size: var(--heading-font-size-xs); }
+
 
 p,
 dl,
@@ -175,33 +169,36 @@ button {
   max-width: 100%;
   margin: 12px 0;
   border: 2px solid transparent;
-  border-radius: 2.4em;
-  padding: 0.5em 1.2em;
+  /* border-radius: 2.4em; */
+  padding: 15px 30px;
   font-family: var(--body-font-family);
-  font-style: normal;
-  font-weight: 500;
+  /* font-style: normal; */
+  /* font-weight: 500; */
   line-height: 1.25;
   text-align: center;
   text-decoration: none;
-  background-color: var(--link-color);
-  color: var(--background-color);
+  background-color:#ffea00;
+  color: #202020;
   cursor: pointer;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  text-transform: uppercase;
+  font-size: 13px;
+  font-weight: 550;
 }
 
 a.button:hover,
 a.button:focus,
 button:hover,
 button:focus {
-  background-color: var(--link-hover-color);
+  /* background-color: var(--link-hover-color); */
   cursor: pointer;
 }
 
 button:disabled,
 button:disabled:hover {
-  background-color: var(--light-color);
+  background-color: #ffea00;
   cursor: unset;
 }
 
@@ -237,7 +234,7 @@ main > .section {
 main > .section > div {
   max-width: 1200px;
   margin: auto;
-  padding: 0 24px;
+  padding: 0;
 }
 
 main > .section:first-of-type {
@@ -246,8 +243,11 @@ main > .section:first-of-type {
 
 @media (width >= 900px) {
   main > .section > div {
-    padding: 0 32px;
+    /* padding: 0 32px; */
+    max-width: 100%;
+    margin: 0 50px;
   }
+
 }
 
 /* section metadata */
