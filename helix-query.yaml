@@ -1,5 +1,5 @@
 indices:
-  articles:
+  website:
     include:
       - '**'
 
