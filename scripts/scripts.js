@@ -27,7 +27,26 @@ function buildHeroBlock(main) {
     main.prepend(section);
   }
 }
-
+document.addEventListener("DOMContentLoaded", function() {
+  if (window.location.pathname.includes("faqs")) {
+    const targetDiv = document.querySelector("body > main ");
+    if (targetDiv) {
+      targetDiv.classList.add("faq");
+    }
+  }
+  else if (window.location.pathname.includes("aboutus")) {
+    const targetDiv = document.querySelector("body > main ");
+    if (targetDiv) {
+      targetDiv.classList.add("about-us");
+    }
+  }
+  else if (window.location.pathname.includes("magazines")) {
+    const targetDiv = document.querySelector("body > main ");
+    if (targetDiv) {
+      targetDiv.classList.add("magazine");
+    }
+  }
+});
 /**
  * load fonts.css and set a session storage flag
  */

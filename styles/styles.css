@@ -307,3 +307,52 @@ main .default-content-wrapper>h3 {
 
   }
 }
+main .section .default-content-wrapper >p >picture >img{
+  width: 60%;
+}
+main .section .default-content-wrapper >p{
+  font-size: 18px;
+  line-height: 2.5;
+  text-align: justify;
+  margin: 0 0 13.5px;
+  padding: 0 14px;
+}
+.faq .section .default-content-wrapper #need-more-help{
+  font-size: 20px;
+  font-weight: normal;
+}
+.faq .section .default-content-wrapper >p>picture>img{
+  width: 100%;
+}
+.faq .section:nth-of-type(2) .default-content-wrapper >p{
+  font-size: 14px;
+}
+.faq .section:nth-of-type(2) .default-content-wrapper >p>a{
+  color: #0045ff;
+}
+@media(width>=900px){
+  .faq {
+    margin-top:5%;
+    display: flex;
+  }
+  .faq .accordion-container{
+    width: 70%;
+  }
+  .about-us{
+    margin-top: 10%;
+  }
+}
+.about-us .section .default-content-wrapper >h1{
+  font-size: 40px;
+  font-weight: normal;
+  margin:70px 14px 50px;
+  color:#202020;
+
+}
+.about-us .section .default-content-wrapper >p{
+  font-style: italic;
+  font-size: 13px;
+  line-height: 2.5;
+  font-weight: normal;
+  color:#202020;
+}
