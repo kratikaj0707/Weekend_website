@@ -240,6 +240,7 @@ main>.section>div {
 main>.section:first-of-type {
   margin-top: 0;
 }
+main .articles-container::after,
 main .cards-container::after {
   content: '';
   display: block;
@@ -294,7 +295,8 @@ main .default-content-wrapper>h3 {
     max-width: 100%;
     margin: 0 50px;
   }
-
+  
+  main .articles-container::after,
   main .cards-container::after {
     content: '';
     display: block;
@@ -306,6 +308,11 @@ main .default-content-wrapper>h3 {
     /* space between component and line */
 
   }
+}
+.magazine-template >main .section .default-content-wrapper >h3{
+  font-size: 38px;
+  margin-top: 60px;
+  margin-bottom: 0;
 }
 main .section .default-content-wrapper >p >picture >img{
   width: 60%;
@@ -340,6 +347,11 @@ main .section .default-content-wrapper >p{
   }
   .about-us{
     margin-top: 10%;
+  }
+  .magazine-template >main .section .default-content-wrapper >h3{
+    font-size: 38px;
+    margin-top: 150px;
+    margin-bottom: 0;
   }
 }
 .about-us .section .default-content-wrapper >h1{

@@ -152,7 +152,17 @@ console.log(searchIconSpan);
     searchInput.type = 'text';
     searchInput.placeholder = 'SEARCH';
     searchInput.className = 'nav-search-input';
-
+    searchInput.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter') {
+        const query = searchInput.value.trim();
+        if (query) {
+          const googleUrl = `https://www.google.com/search?q=${encodeURIComponent(query)}`;
+          window.open(googleUrl, '_blank'); 
+          searchInput.value = '';
+          
+        }
+      }
+    });
     // Add input to wrapper
     searchWrapper.appendChild(searchInput);
 
@@ -171,11 +181,15 @@ console.log(searchIconSpan);
   const navSections = nav.querySelector('.nav-sections');
   if (navSections) {
     navSections.querySelectorAll(':scope .default-content-wrapper > ul > li').forEach((navSection) => {
+      
       if (navSection.querySelector('ul')) navSection.classList.add('nav-drop');
       navSection.addEventListener('click', () => {
+        
         if (isDesktop.matches) {
           const expanded = navSection.getAttribute('aria-expanded') === 'true';
+          
           toggleAllNavSections(navSections);
+          
           navSection.setAttribute('aria-expanded', expanded ? 'false' : 'true');
         }
       });

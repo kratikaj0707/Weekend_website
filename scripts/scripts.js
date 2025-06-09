@@ -40,12 +40,7 @@ document.addEventListener("DOMContentLoaded", function() {
       targetDiv.classList.add("about-us");
     }
   }
-  else if (window.location.pathname.includes("magazines")) {
-    const targetDiv = document.querySelector("body > main ");
-    if (targetDiv) {
-      targetDiv.classList.add("magazine");
-    }
-  }
+  
 });
 /**
  * load fonts.css and set a session storage flag
