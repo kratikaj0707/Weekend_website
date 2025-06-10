@@ -27,24 +27,7 @@ function buildHeroBlock(main) {
     main.prepend(section);
   }
 }
-document.addEventListener("DOMContentLoaded", function() {
-  if (window.location.pathname.includes("faqs")) {
-    const targetDiv = document.querySelector("body > main ");
-    if (targetDiv) {
-      targetDiv.classList.add("faq");
-    }
-  }
-  else if (window.location.pathname.includes("aboutus")) {
-    const targetDiv = document.querySelector("body > main ");
-    if (targetDiv) {
-      targetDiv.classList.add("about-us");
-    }
-  }
-  
-});
-/**
- * load fonts.css and set a session storage flag
- */
+
 async function loadFonts() {
   await loadCSS(`${window.hlx.codeBasePath}/styles/fonts.css`);
   try {

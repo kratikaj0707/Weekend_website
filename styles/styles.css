@@ -324,28 +324,28 @@ main .section .default-content-wrapper >p{
   margin: 0 0 13.5px;
   padding: 0 14px;
 }
-.faq .section .default-content-wrapper #need-more-help{
+.faqs >main .section .default-content-wrapper #need-more-help{
   font-size: 20px;
   font-weight: normal;
 }
-.faq .section .default-content-wrapper >p>picture>img{
+.faqs >main .section .default-content-wrapper >p>picture>img{
   width: 100%;
 }
-.faq .section:nth-of-type(2) .default-content-wrapper >p{
+.faqs >main .section:nth-of-type(2) .default-content-wrapper >p{
   font-size: 14px;
 }
-.faq .section:nth-of-type(2) .default-content-wrapper >p>a{
+.faqs >main .section:nth-of-type(2) .default-content-wrapper >p>a{
   color: #0045ff;
 }
 @media(width>=900px){
-  .faq {
+  .faqs >main {
     margin-top:5%;
     display: flex;
   }
-  .faq .accordion-container{
+  .faqs >main .accordion-container{
     width: 70%;
   }
-  .about-us{
+  .about-us >main{
     margin-top: 10%;
   }
   .magazine-template >main .section .default-content-wrapper >h3{
@@ -354,14 +354,14 @@ main .section .default-content-wrapper >p{
     margin-bottom: 0;
   }
 }
-.about-us .section .default-content-wrapper >h1{
+.about-us >main .section .default-content-wrapper >h1{
   font-size: 40px;
   font-weight: normal;
   margin:70px 14px 50px;
   color:#202020;
 
 }
-.about-us .section .default-content-wrapper >p{
+.about-us >main .section .default-content-wrapper >p{
   font-style: italic;
   font-size: 13px;
   line-height: 2.5;
