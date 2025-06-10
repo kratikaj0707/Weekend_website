@@ -32,6 +32,9 @@ footer .footer .section a{
   padding: 0;
   margin: 0;
 }
+footer .footer > div > div:nth-of-type(2){
+  width: 40%;
+}
 footer .footer > div > div:nth-of-type(2) >div{
   margin: 16px 0;
 }
