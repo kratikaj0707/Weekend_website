@@ -25,37 +25,29 @@
   /* margin: 16px; */
 }
 
-.articles >ul >li .cards-card-image {
+.articles >ul >li>a .cards-card-image {
   line-height: 0;
 }
 
-.articles > ul > li img {
+.articles > ul > li >a img {
   width: 100%;
   aspect-ratio: 4 / 3;
   object-fit: cover;
 }
-.articles > ul >li> .cards-card-body> h2{
-  margin-top: 5px;
-  line-height: 1;
+
+.articles > ul >li> a .cards-card-body> h2{
   color: #202020;
-}
-.articles > ul >li> .cards-card-body> h2>a{
-  color: #202020;
-  font-size: 16px;
+  font-size: 18px;
   text-transform: uppercase;
   font-family: var(--body-font-family);
-  
-}
-.articles > ul >li> .cards-card-body> p{
-  font-size: 17px;
-  text-transform: uppercase;
+  margin-top: 4%;
+  line-height: 1;
+  font-weight: 600;
   color: #202020;
-  white-space: wrap;
-  /* overflow: hidden;
-  text-overflow: ellipsis; */
 }
-.articles > ul >li> .cards-card-body> p{
-  font-size: 12px;
+
+.articles > ul >li> a .cards-card-body> p{
+  font-size: 14px;
   text-transform: uppercase;
   color: dimgray;
   white-space: nowrap;

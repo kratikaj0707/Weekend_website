@@ -12,7 +12,7 @@ header .nav-wrapper {
 header .nav-wrapper #nav-top{
   display: flex;
   flex-direction: row;
-  height: 21px;
+  height: 0.5%;
   background-color: black;
   color: white;
   margin: 0;
@@ -20,14 +20,14 @@ header .nav-wrapper #nav-top{
   display: flex
 ;
     justify-content: space-between;
-    padding: 0 15px;
+    padding: 0 1%;
 }
 header .nav-wrapper #nav-top span{
   display: inline;
   font-size: 0.75rem;
 }
 header #nav {
-  padding: 15px 0;
+  padding: 0.5% 0;
   box-sizing: border-box;
   display: flex;
   grid-template:
@@ -41,20 +41,78 @@ header #nav {
   font-family: var(--body-font-family);
 }
 
-header nav[aria-expanded='true'] {
-  grid-template:
-    'hamburger brand' auto 'sections sections' 1fr
-    'tools tools' auto / auto 1fr;
-    transition: all 0.3s ease;
+/* Sidebar base style */
+#mobile-sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 70%;
+  height: 100vh;
+  background-color: #000; /* Or use #fff for light theme */
+  color: #fff; /* Ensure text inside is visible */
   overflow-y: auto;
-  min-height: 100vh;
-  /* background-color: black; */
-  display: flex;
-  
-/* width:300px; */
-  align-items: flex-start;
+  z-index: 1000;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+  padding: 1rem;
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.3);
 }
 
+/* When visible, JavaScript sets this inline:
+   transform: translateX(0);
+*/
+
+/* Optional: Style for nav sections inside sidebar */
+#mobile-sidebar .nav-sections {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+#mobile-sidebar .nav-sections a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.1rem;
+  padding: 0.5rem 0;
+ 
+}
+#mobile-sidebar .nav-sections .default-content-wrapper>ul {
+  list-style: none;
+}
+#mobile-sidebar .nav-sections .default-content-wrapper>ul >li{
+  color: white;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-size: 1.1rem;
+  padding: 0.5rem 0;
+  /* border-bottom: 1px solid rgba(255, 255, 255, 0.2); */
+}
+#mobile-sidebar .nav-sections .default-content-wrapper>ul >li::after{
+  content: '';
+  display: block;
+  height: 1px;
+  width: 100%;
+  background-color:rgba(255, 255, 255, 0.2);
+  /* margin-left: 64px;
+  margin-right: 64px; */
+  /* margin-top: 32px; */
+}
+#mobile-sidebar .nav-sections a:hover {
+  color: #00bcd4;
+}
+
+/* Shift body when sidebar is open */
+/* body.sidebar-open {
+  transform: translateX(70%);
+  transition: transform 0.5s ease;
+  overflow-x: hidden;
+} */
+
+body#mobile-sidebar {
+  position: relative;
+  /* overflow-x: hidden; */
+  will-change: transform;
+}
 
 
 header nav p {
@@ -186,6 +244,7 @@ header #nav .nav-tools {
 }
 
 .nav-search-wrapper {
+  align-self:flex-end;
   display: flex;
   align-items: center;
   background-color: #ebebeb8a;
@@ -216,7 +275,7 @@ header .nav-search-wrapper .icon-search{
   width: 96px;
   height: 40px;
 }
-header.scrolled #nav{
+header.scrolled .nav-wrapper{
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 @media(width>=600px){
@@ -231,7 +290,9 @@ header.scrolled #nav{
     float: unset !important;
     justify-content: space-between;
     padding: 40px;
-    height: 160px;
+    width: 100%;
+    background-color: white;
+    height: var(--nav-height);
   }
 
   header #nav .nav-sections {
@@ -298,7 +359,7 @@ header.scrolled #nav{
     width: 128px;
     height: auto;
   }
-  header nav {
+  header #nav {
     justify-content: space-between;
     /* padding: 40px; */
     height: 160px;
@@ -306,6 +367,7 @@ header.scrolled #nav{
     justify-content: space-between;
     gap: 0 32px;
     max-width: 1264px;
+    background-color: white;
     /* padding: 0 32px; */
     
     /* padding: 15px 0; */
@@ -324,6 +386,7 @@ header.scrolled #nav{
 
   header nav[aria-expanded='true'] {
     min-height: 0;
+    width: 100%;
     overflow: visible;
   }
   

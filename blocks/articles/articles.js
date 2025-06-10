@@ -20,25 +20,34 @@ export default async function decorate(block) {
 
     articleItems.forEach((item) => {
       const li = document.createElement('li');
-      li.classList.add('cards-card');
+li.classList.add('cards-card');
 
-      // Cards Image Section
-      const imgWrapper = document.createElement('div');
-      imgWrapper.className = 'cards-card-image';
-      imgWrapper.append(
-        createOptimizedPicture(item.image, item.title, false, [{ width: '750' }])
-      );
+// Wrap card content in a link
+const cardLink = document.createElement('a');
+cardLink.href = item.path;
+cardLink.style.textDecoration = 'none'; // remove underline if desired
+cardLink.style.color = 'inherit'; // ensure it doesn't change color
 
-      // Cards Body Section
-      const bodyWrapper = document.createElement('div');
-      bodyWrapper.className = 'cards-card-body';
-      bodyWrapper.innerHTML = `
-        <h2><a href="${item.path}">${item.title}</a></h2>
-        <p>${item.description}</p>
-      `;
+// Image section
+const imgWrapper = document.createElement('div');
+imgWrapper.className = 'cards-card-image';
+imgWrapper.append(
+  createOptimizedPicture(item.image, item.title, false, [{ width: '750' }])
+);
 
-      li.append(imgWrapper, bodyWrapper);
-      ul.appendChild(li);
+// Body section
+const bodyWrapper = document.createElement('div');
+bodyWrapper.className = 'cards-card-body';
+bodyWrapper.innerHTML = `
+  <h2>${item.title}</h2>
+  <p>${item.description}</p>
+`;
+
+// Append all to link, then to li
+cardLink.append(imgWrapper, bodyWrapper);
+li.appendChild(cardLink);
+ul.appendChild(li);
+
     });
 
     // Clear the block and insert the rendered list

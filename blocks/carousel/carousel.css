@@ -127,15 +127,15 @@
   width: 44px;
   height: 44px;
   margin: 0;
-  border-radius: 50%;
+  border-radius: 0;
   padding: 0;
-  background-color: rgb(19 19 19 / 25%);
+  background-color: transparent;
   transition: background-color 0.2s;
 }
 
 .carousel .carousel-navigation-buttons button:hover,
 .carousel .carousel-navigation-buttons button:focus-visible {
-  background-color: rgb(19 19 19 / 75%);
+  background-color: transparent;
 }
 
 .carousel .carousel-navigation-buttons button::after {
@@ -178,6 +178,7 @@
     right: 14px;
     display: flex;
     justify-content: flex-end;
+    background-color: transparent;
   }
 
   .carousel .carousel-slide {

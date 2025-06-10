@@ -71,37 +71,84 @@ function toggleAllNavSections(sections, expanded = false) {
 function toggleMenu(nav, navSections, forceExpanded = null) {
   const expanded = forceExpanded !== null ? !forceExpanded : nav.getAttribute('aria-expanded') === 'true';
   const button = nav.querySelector('.nav-hamburger button');
-  document.body.style.overflowY = (expanded || isDesktop.matches) ? '' : 'hidden';
+
+  // Mobile only
+  if (!isDesktop.matches) {
+    const sidebarId = 'mobile-sidebar';
+    const existingSidebar = document.getElementById(sidebarId);
+
+    if (!expanded) {
+      // === OPEN SIDEBAR ===
+
+      // Create sidebar container
+      const sidebar = document.createElement('div');
+      sidebar.id = sidebarId;
+      
+      sidebar.style.overflowY = 'auto';
+      sidebar.style.zIndex = '1000';
+      sidebar.style.transition = 'transform 0.3s ease';
+      // sidebar.style.transform = 'translateX(0%)';
+
+      // Clone navSections into sidebar
+      const navClone = navSections.cloneNode(true);
+
+// Find the ul inside the cloned structure
+const ul = navClone.querySelector('.default-content-wrapper ul');
+
+if (ul) {
+  // Create a new <li><a>Home</a></li> element
+  const homeLi = document.createElement('li');
+  const homeLink = document.createElement('a');
+  homeLink.href = '/'; // or your home route
+  homeLink.textContent = 'Home';
+
+  homeLi.appendChild(homeLink);
+
+  // Insert as first child of <ul>
+  ul.insertBefore(homeLi, ul.firstChild);
+}
+
+// Add the updated clone to the sidebar
+sidebar.appendChild(navClone);
+document.body.appendChild(sidebar);
+
+
+      // Force reflow and slide in
+      requestAnimationFrame(() => {
+        sidebar.style.transform = 'translateX(0)';
+        document.body.style.transition = 'transform 0.5s ease';
+        document.body.style.transform = 'translateX(0%)';
+      });
+
+    } else {
+      // === CLOSE SIDEBAR ===
+      if (existingSidebar) {
+        existingSidebar.style.transform = 'translateX(-100%)';
+        document.body.style.transform = 'translateX(0)';
+
+        setTimeout(() => {
+          if (existingSidebar.parentNode) {
+            existingSidebar.parentNode.removeChild(existingSidebar);
+          }
+        }, 300); // match transition duration
+      }
+    }
+  }
+
+  // Toggle aria and accessibility
   nav.setAttribute('aria-expanded', expanded ? 'false' : 'true');
   toggleAllNavSections(navSections, expanded || isDesktop.matches ? 'false' : 'true');
   button.setAttribute('aria-label', expanded ? 'Open navigation' : 'Close navigation');
-  // enable nav dropdown keyboard accessibility
-  const navDrops = navSections.querySelectorAll('.nav-drop');
-  if (isDesktop.matches) {
-    navDrops.forEach((drop) => {
-      if (!drop.hasAttribute('tabindex')) {
-        drop.setAttribute('tabindex', 0);
-        drop.addEventListener('focus', focusNavSection);
-      }
-    });
-  } else {
-    navDrops.forEach((drop) => {
-      drop.removeAttribute('tabindex');
-      drop.removeEventListener('focus', focusNavSection);
-    });
-  }
 
-  // enable menu collapse on escape keypress
   if (!expanded || isDesktop.matches) {
-    // collapse menu on escape press
     window.addEventListener('keydown', closeOnEscape);
-    // collapse menu on focus lost
     nav.addEventListener('focusout', closeOnFocusLost);
   } else {
     window.removeEventListener('keydown', closeOnEscape);
     nav.removeEventListener('focusout', closeOnFocusLost);
   }
 }
+
 
 /**
  * loads and decorates the header, mainly the nav
